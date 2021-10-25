@@ -1,5 +1,6 @@
 const linkSocialMedia = {
   github: 'aryanevilhena',
+  linkedin: 'aryane-vilhena',
   facebook: 'aryanevilhena',
   instagram: 'aryane_vilhena',
   twitter: 'aryanevilhena'
@@ -12,7 +13,10 @@ getGitHubProfileInfos()
 function changeSocialMediaLinks() {
   for (let li of socialLinks.children) {
     const social = li.getAttribute('class')
-    li.children[0].href = `https://${social}.com/${linkSocialMedia[social]}`
+    if (li.getAttribute('class') === 'linkedin') {
+      li.children[0].href = `https://${social}.com/in/${linkSocialMedia[social]}`
+    } else
+      li.children[0].href = `https://${social}.com/${linkSocialMedia[social]}`
   }
 }
 
